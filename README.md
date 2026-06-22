@@ -58,6 +58,10 @@ The submodule URLs are public **https** so anyone can clone. If you maintain the
 git -C octopus remote set-url --push origin git@github.com-thdelmas:thdelmas/open-source-octopus-investigation.git
 ```
 
+## How this suite was scoped
+
+The four organs weren't picked in a vacuum — the landscape was mapped with an octopus investigation, and every project considered was logged with a verdict (adopted / rejected / watch) and the reasoning. See [`docs/landscape-tracker.md`](./docs/landscape-tracker.md) for the curation record: what's out there, what influenced the design, and why the gaps (`sunset`, `rem-sleep`-as-a-skill) are real.
+
 ## License
 
 MIT — see [LICENSE](./LICENSE). Each submodule carries its own MIT license too.
