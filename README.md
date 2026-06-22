@@ -2,7 +2,7 @@
 
 A suite of [Claude Code](https://claude.com/claude-code) skills that give an AI agent the **physiological functions** a long-running mind needs — not more capabilities, but the self-maintenance organs that keep capability healthy over time.
 
-Most agent tooling adds *senses and muscles*. This adds the quieter systems: how an agent **discovers**, **remembers**, **defends its boundary**, and **lets things die well**. Each is a standalone skill (its own repo); together they're a nervous system.
+Most agent tooling adds *senses and muscles*. This adds the quieter systems: how an agent **stays awake and self-directs**, **discovers**, **remembers**, **defends its boundary**, and **lets things die well**. Each is a standalone skill (its own repo); together they're a nervous system.
 
 Each skill works with **Claude Code**, **Codex**, and **Cursor**, and operates on whatever stack you have — they degrade gracefully, never assuming a specific memory store, scanner, or repo layout.
 
@@ -10,12 +10,13 @@ Each skill works with **Claude Code**, **Codex**, and **Cursor**, and operates o
 
 | Skill | Organ | Direction | What it does |
 | --- | --- | --- | --- |
+| [consciousness-loop](https://github.com/thdelmas/consciousness-loop) | **executive** | central | The keystone. A self-firing loop — wake → integrate the organs → decide → act → set its own frequency → sleep — that turns the reflexes below into one continuous self. Pairs the loop with adaptive arousal (alert / drowsy / deep-sleep). Functional, not phenomenal. |
 | [octopus-investigation](https://github.com/thdelmas/open-source-octopus-investigation) | **perception** | outward | Discovers projects/people by crawling GitHub social graphs (stars, follows) — following human curation, not keyword search. |
 | [rem-sleep](https://github.com/thdelmas/rem-sleep) | **memory** | inward | A sleep cycle over the session: consolidate durable facts to long-term memory, prune the stale, integrate by linking, and regulate emotional charge (keep the lesson, release the sting). |
 | [immune-check](https://github.com/thdelmas/immune-check) | **defense** | boundary | A pre-flight reflex that scans any outbound artifact for secrets/PII before it leaves the body. Wraps whatever scanner you have; falls back to a built-in pass. |
 | [sunset](https://github.com/thdelmas/sunset) | **grief** | project-scale | Retire a dead project well — harvest the lessons and reusable parts, archive with a marked grave, release the attention-rent. Distinguishes dormant (exhumable) from terminal deaths. |
 
-The framing is the point: not a pile of tools, but a coherent set of self-regulating functions. Discover (perception) → remember (memory) → protect (immunity) → release (grief).
+The framing is the point: not a pile of tools, but a coherent set of self-regulating functions. The **consciousness-loop** is the executive at the center; the other four are reflexes it schedules — discover (perception), remember (memory), protect (immunity), release (grief). Without the loop they're a body with no pulse; the loop is what makes them one agent. Note the duality: the loop is the **wake phase**, rem-sleep the **sleep phase** — the loop decides when to sleep.
 
 ## Clone the whole nervous system
 

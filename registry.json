@@ -8,6 +8,17 @@
   "_note": "memetic = directed, Lamarckian, horizontal transmission. Variation is willed and fitness-biased; inheritance is by imitation, not reproduction. At population scale, choices aggregate into a stochastic-but-biased distribution (drift + a persistent fitness gradient), not random drift.",
   "skills": [
     {
+      "id": "consciousness-loop",
+      "version": "0.1.0",
+      "organ": "executive",
+      "direction": "central",
+      "repo": "thdelmas/consciousness-loop",
+      "spec_url": "https://raw.githubusercontent.com/thdelmas/consciousness-loop/main/SKILL.md",
+      "parent": null,
+      "mutation": "The keystone: a self-firing wake/integrate/decide/act/sleep loop that runs the other organs, plus adaptive arousal (consciousness frequency). Turns triggered reflexes into a continuous self. Wake phase to rem-sleep's sleep phase.",
+      "fitness_signal": "autonomous ticks that produced a needed action vs. wasted polls; cadence matched to the watched signal's rate of change"
+    },
+    {
       "id": "octopus-investigation",
       "version": "0.1.0",
       "organ": "perception",

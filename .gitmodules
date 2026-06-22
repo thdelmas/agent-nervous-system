@@ -10,3 +10,6 @@
 [submodule "sunset"]
 	path = sunset
 	url = https://github.com/thdelmas/sunset.git
+[submodule "consciousness-loop"]
+	path = consciousness-loop
+	url = https://github.com/thdelmas/consciousness-loop.git
