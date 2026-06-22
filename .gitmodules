@@ -13,3 +13,6 @@
 [submodule "consciousness-loop"]
 	path = consciousness-loop
 	url = https://github.com/thdelmas/consciousness-loop.git
+[submodule "playtime"]
+	path = playtime
+	url = https://github.com/thdelmas/playtime.git

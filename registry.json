@@ -61,6 +61,17 @@
       "parent": "rem-sleep",
       "mutation": "Scale rem-sleep's emotional-regulation stage from session to whole project: harvest, archive with a marked grave, release the rent. Distinguish terminal vs dormant death.",
       "fitness_signal": "dead projects retired with lessons+organs harvested vs. left rotting in the backlog"
+    },
+    {
+      "id": "playtime",
+      "version": "0.1.0",
+      "organ": "development",
+      "direction": "developmental",
+      "repo": "thdelmas/playtime",
+      "spec_url": "https://raw.githubusercontent.com/thdelmas/playtime/main/SKILL.md",
+      "parent": "rem-sleep",
+      "mutation": "Invert rem-sleep's direction: instead of consolidating experience you had, generate new experience on purpose — safe-to-fail exploration that builds capability before it's needed, then harvest the learning back to memory. What the loop does with safe idle windows.",
+      "fitness_signal": "new capabilities/gotchas learned per play session that later prevented a production failure; unfamiliar tools rehearsed before depended-on"
     }
   ]
 }

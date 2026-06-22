@@ -87,6 +87,18 @@ Method shift: instead of crawling obra again, computed the **intersection of sta
 - **Distribution is now mapped:** `vercel-labs/skills` (`npx skills`) and `VoltAgent/awesome-openclaw-skills` are concrete channels for when the suite is ready to spread.
 - **New hub for round 3: `galligan`/`outfitter-dev`** — a denser modern-agent-tooling curator than obra for this theme.
 
+## Round 3 — 2026-06-22
+
+Crawled the new hub `galligan`/`outfitter-dev`, and scouted a candidate new organ: **playtime** (engage & learn).
+
+- **`galligan` confirmed as a dense hub.** His following is the agent-tooling who's-who: `yoheinakajima` (BabyAGI), `ghuntley`, `transitive-bullshit`, `disler`, `coleam00`, `karpathy`, `modelcontextprotocol`, `kepano`. `outfitter-dev` ships `carabiner` (Claude Code hooks lib), `trails`, `waymark`, `blz`. **Watch** — round-4 origin.
+- **Playtime scout → white space (like `sunset`).** `agent playground/sandbox` → 0 results; `self-improving agent learn` → 0; `agent skill practice` → only tutorial repos; `curiosity-driven agent` → only academic RL papers (intrinsic curiosity modules, world models). The *theory* exists (intrinsic motivation / curiosity-driven exploration); the **behavioral skill does not.** **Built `playtime`** as the developmental organ, citing the RL literature as theory. The academic curiosity-RL work is **adopted as cited theory**, reframed from a training signal into a behavioral routine.
+
+### What round 3 adds
+
+- **A sixth organ.** The suite could *maintain* capability but not *grow* it — `playtime` fills the developmental gap and inverts `rem-sleep` (generate new experience on purpose ↔ consolidate experience you had). Now two dualities bind the suite: wake/sleep (loop ↔ rem-sleep) and proactive/reactive learning (playtime ↔ rem-sleep).
+- **Two organs now have no behavioral-skill precedent at all:** `sunset` (grief) and `playtime` (development). The physiology framing keeps finding white space.
+
 ## Queued for the next run
 
-`galligan` / `outfitter-dev` (the new hub — crawl its stars + `carabiner`/`trails`/`waymark`) · `nanocoai/nanoclaw` (study how it pairs memory + scheduled jobs) · `vercel-labs/skills` (distribution path) · `EveryInc/compound-engineering-plugin` (multi-tool plugin pattern).
+`galligan`'s following (round-4 origins: `yoheinakajima`/BabyAGI, `ghuntley`, `transitive-bullshit`, `disler`, `coleam00`) · `nanocoai/nanoclaw` (memory + scheduled jobs) · `vercel-labs/skills` (distribution path) · `outfitter-dev/carabiner` (hooks-library pattern).
