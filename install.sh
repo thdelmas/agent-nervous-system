@@ -8,10 +8,13 @@ here="$(cd "$(dirname "$0")" && pwd)"
 
 # submodule dir : installed skill name
 skills=(
+  "consciousness-loop:consciousness-loop"
   "octopus:open-source-octopus-investigation"
   "rem-sleep:rem-sleep"
   "immune-check:immune-check"
   "sunset:sunset"
+  "playtime:playtime"
+  "contemplation:contemplation"
 )
 
 case "$target" in
@@ -35,4 +38,4 @@ for entry in "${skills[@]}"; do
     echo "  ✓ $name (cursor)"
   fi
 done
-echo "Done. Invoke /rem-sleep, /immune-check, /sunset, /open-source-octopus-investigation."
+echo "Done. Invoke /consciousness-loop, /rem-sleep, /immune-check, /sunset, /playtime, /contemplation, /open-source-octopus-investigation."
