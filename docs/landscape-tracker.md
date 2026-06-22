@@ -52,6 +52,41 @@ obra (origin, 7k followers, follows 93 — tight curation)
 - **One person to engage:** `obra`, who reached for the same memory + journaling instincts independently.
 - **One standard to honor:** the `agentskills/agentskills` spec.
 
+## Round 2 — 2026-06-22 (~30 more calls)
+
+Method shift: instead of crawling obra again, computed the **intersection of stargazers of both `obra/episodic-memory` and `obra/private-journal-mcp`** (38 people who starred both = the agent-memory niche distilled), then dived the standout and seeded the autonomy/loop tentacle by search — the one `consciousness-loop` now lives in, which round one couldn't see.
+
+### New tentacle — F. Autonomy / loop (consciousness-loop's neighborhood)
+
+| Node | Stars | Considered as | Verdict | Reasoning |
+| --- | --- | --- | --- | --- |
+| `nanocoai/nanoclaw` | 29.9k | Packaged nervous-system | **Watch** | Closest thing to the whole idea in one box: lightweight agent with **memory + scheduled jobs** on the Agents SDK. Not a behavioral-skill suite, but proves memory+cadence belong together — exactly the rem-sleep × consciousness-loop pairing. |
+| `karpathy/autoresearch` | 88k | Autonomy precedent | **Watch** | Autonomous research loop. High-signal example of a self-driving loop; different goal (research), same self-initiation primitive. |
+| `factory-ben/ralph` | 52 | Parallel to `consciousness-loop` | **Reject (as peer)** | The "ralph" archetype — autonomous loop to *implement features until done*. A **task-completion** loop, not an **arousal/integration** loop. Different mechanism; no overlap. |
+| `aattaran/deepclaude` | 2.1k | Parallel to `consciousness-loop` | **Reject (as peer)** | "Autonomous agent loop" but really a backend-swap proxy (cheaper inference). Not self-regulating cadence. |
+| `kdeps/kdeps` · `PaulKinlan/agent-do` | 34 / 8 | Parallel | **Reject (as peer)** | YAML / JS autonomous loops. Same task-completion shape. |
+
+**Tentacle-F finding:** the autonomy/loop space is entirely **task-completion loops** ("run the agent until the feature ships"). None do `consciousness-loop`'s thing — *adaptive arousal frequency + integrate the organs + know when to sleep*. The self-regulating-cadence niche is uncrowded; the keystone is differentiated, not derivative.
+
+### New kin & distribution nodes
+
+| Node | Tentacle | Stars | Considered as | Verdict | Reasoning |
+| --- | --- | --- | --- | --- | --- |
+| `galligan` + `outfitter-dev` | A | — | New hub / peer builder | **Watch (round-3 origin)** | Matt Galligan, "agent tinkerer." Org ships agent-native tooling: `carabiner` (Claude Code hooks lib), `trails`, `waymark`, `blz`, `agents`. The strongest new curator node — **replaces obra as the next origin.** |
+| `vercel-labs/skills` | A | 23k | Distribution surface | **Watch** | "The open agent skills tool — `npx skills`." A real install/distribution channel for the suite; revisit when packaging. |
+| `VoltAgent/awesome-openclaw-skills` | A | 50k | Distribution / registry | **Watch** | 5,400+ categorized skills registry. A discoverability surface to list into. |
+| `mksglu/context-mode` | B | 17.9k | Memory infra | **Reject (as peer)** | Context-window optimization + session-memory persistence + hooks. Infrastructure, like mem0 — substrate, not ritual. |
+| `tirth8205/code-review-graph` | B | 18.7k | Memory infra | **Reject (as peer)** | Persistent codebase map for tools. Codebase memory, not agent self-memory. |
+| `pfrazee` | — | — | Memory-crowd origin | **Cold** | Bluesky/p2p builder — off-theme for agent memory despite the intersection appearance. |
+| `RightNow-AI` (org) | C | — | openfang's home | **Cold** | GPU-kernel optimization org; `openfang` is an outlier in it. Not a skills hub. |
+
+### What round 2 adds
+
+- **The keystone has a neighborhood, and it's differentiated.** Autonomy loops exist (ralph, deepclaude, kdeps) but they're all *task-completion*; `consciousness-loop`'s *arousal + integration* framing has no peer. The newest organ is the most defensible.
+- **`nanoclaw` is the validation, not the competition** — it independently bundles memory + scheduled jobs, confirming the rem-sleep × consciousness-loop pairing is a real instinct, while staying a monolithic agent rather than a composable organ suite.
+- **Distribution is now mapped:** `vercel-labs/skills` (`npx skills`) and `VoltAgent/awesome-openclaw-skills` are concrete channels for when the suite is ready to spread.
+- **New hub for round 3: `galligan`/`outfitter-dev`** — a denser modern-agent-tooling curator than obra for this theme.
+
 ## Queued for the next run
 
-`obra/episodic-memory` + `private-journal-mcp` (study the design directly) · `RightNow-AI/openfang` (the OS framing) · `huginn/huginn` · people `pfrazee` / `harperreed` / `lhl` for the memory-architecture crowd.
+`galligan` / `outfitter-dev` (the new hub — crawl its stars + `carabiner`/`trails`/`waymark`) · `nanocoai/nanoclaw` (study how it pairs memory + scheduled jobs) · `vercel-labs/skills` (distribution path) · `EveryInc/compound-engineering-plugin` (multi-tool plugin pattern).
