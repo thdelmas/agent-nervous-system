@@ -19,3 +19,6 @@
 [submodule "contemplation"]
 	path = contemplation
 	url = https://github.com/thdelmas/contemplation.git
+[submodule "proprioception"]
+	path = proprioception
+	url = https://github.com/thdelmas/proprioception.git
