@@ -16,3 +16,6 @@
 [submodule "playtime"]
 	path = playtime
 	url = https://github.com/thdelmas/playtime.git
+[submodule "contemplation"]
+	path = contemplation
+	url = https://github.com/thdelmas/contemplation.git

@@ -72,6 +72,17 @@
       "parent": "rem-sleep",
       "mutation": "Invert rem-sleep's direction: instead of consolidating experience you had, generate new experience on purpose — safe-to-fail exploration that builds capability before it's needed, then harvest the learning back to memory. What the loop does with safe idle windows.",
       "fitness_signal": "new capabilities/gotchas learned per play session that later prevented a production failure; unfamiliar tools rehearsed before depended-on"
+    },
+    {
+      "id": "contemplation",
+      "version": "0.1.0",
+      "organ": "deliberation",
+      "direction": "meta",
+      "repo": "thdelmas/contemplation",
+      "spec_url": "https://raw.githubusercontent.com/thdelmas/contemplation/main/SKILL.md",
+      "parent": "consciousness-loop",
+      "mutation": "Where the loop decides means under time pressure, contemplation removes the pressure to examine ends: question the goal/value/frame, hold a question open instead of solving it, and name an irreducible tension rather than force a verdict. The capstone — the only organ that works the 'why', not the 'what/how'.",
+      "fitness_signal": "frames reframed or value-tensions named before acting on a mis-posed goal; decisions correctly routed to contemplation (ends) vs council (choice) vs loop (action)"
     }
   ]
 }
