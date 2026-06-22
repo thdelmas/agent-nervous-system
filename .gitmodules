@@ -1,0 +1,12 @@
+[submodule "octopus"]
+	path = octopus
+	url = https://github.com/thdelmas/open-source-octopus-investigation.git
+[submodule "rem-sleep"]
+	path = rem-sleep
+	url = https://github.com/thdelmas/rem-sleep.git
+[submodule "immune-check"]
+	path = immune-check
+	url = https://github.com/thdelmas/immune-check.git
+[submodule "sunset"]
+	path = sunset
+	url = https://github.com/thdelmas/sunset.git
