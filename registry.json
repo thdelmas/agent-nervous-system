@@ -1,0 +1,55 @@
+{
+  "$schema": "./docs/lineage-spec.md",
+  "registry_version": "0.1.0",
+  "name": "agent-nervous-system",
+  "updated": "2026-06-22",
+  "description": "Machine-readable index of the skill population. A peer agent fetches this to discover what skills exist, their current version, lineage (parent), and where to pull the spec. Pair with lineage.jsonl to see the selection history.",
+  "selector_model": "memetic",
+  "_note": "memetic = directed, Lamarckian, horizontal transmission. Variation is willed and fitness-biased; inheritance is by imitation, not reproduction. At population scale, choices aggregate into a stochastic-but-biased distribution (drift + a persistent fitness gradient), not random drift.",
+  "skills": [
+    {
+      "id": "octopus-investigation",
+      "version": "0.1.0",
+      "organ": "perception",
+      "direction": "outward",
+      "repo": "thdelmas/open-source-octopus-investigation",
+      "spec_url": "https://raw.githubusercontent.com/thdelmas/open-source-octopus-investigation/main/SKILL.md",
+      "parent": null,
+      "mutation": "Graph-based discovery: follow human curation (stars/follows) outward from an origin instead of keyword search.",
+      "fitness_signal": "relevant projects surfaced per run that keyword search would have missed"
+    },
+    {
+      "id": "rem-sleep",
+      "version": "0.1.0",
+      "organ": "memory",
+      "direction": "inward",
+      "repo": "thdelmas/rem-sleep",
+      "spec_url": "https://raw.githubusercontent.com/thdelmas/rem-sleep/main/SKILL.md",
+      "parent": "octopus-investigation",
+      "mutation": "Invert octopus: process inward over the agent's own episodic trace — consolidate, prune, integrate, regulate emotional charge.",
+      "fitness_signal": "durable facts consolidated and stale memories pruned per cycle; recall hit-rate after"
+    },
+    {
+      "id": "immune-check",
+      "version": "0.1.0",
+      "organ": "defense",
+      "direction": "boundary",
+      "repo": "thdelmas/immune-check",
+      "spec_url": "https://raw.githubusercontent.com/thdelmas/immune-check/main/SKILL.md",
+      "parent": "octopus-investigation",
+      "mutation": "Boundary reflex: scan outbound artifacts for secrets/PII before they cross the membrane; wrap any scanner, fall back to built-in.",
+      "fitness_signal": "real pathogens blocked vs. leaks shipped (false-negative rate)"
+    },
+    {
+      "id": "sunset",
+      "version": "0.1.1",
+      "organ": "grief",
+      "direction": "project-scale",
+      "repo": "thdelmas/sunset",
+      "spec_url": "https://raw.githubusercontent.com/thdelmas/sunset/main/SKILL.md",
+      "parent": "rem-sleep",
+      "mutation": "Scale rem-sleep's emotional-regulation stage from session to whole project: harvest, archive with a marked grave, release the rent. Distinguish terminal vs dormant death.",
+      "fitness_signal": "dead projects retired with lessons+organs harvested vs. left rotting in the backlog"
+    }
+  ]
+}

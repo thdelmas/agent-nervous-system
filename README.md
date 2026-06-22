@@ -60,7 +60,15 @@ git -C octopus remote set-url --push origin git@github.com-thdelmas:thdelmas/ope
 
 ## How this suite was scoped
 
-The four organs weren't picked in a vacuum — the landscape was mapped with an octopus investigation, and every project considered was logged with a verdict (adopted / rejected / watch) and the reasoning. See [`docs/landscape-tracker.md`](./docs/landscape-tracker.md) for the curation record: what's out there, what influenced the design, and why the gaps (`sunset`, `rem-sleep`-as-a-skill) are real.
+The four organs weren't picked in a vacuum — the landscape was mapped with an octopus investigation, and every project considered was logged with a verdict (adopted / rejected / watch) and the reasoning. See [`docs/landscape-tracker.md`](./docs/landscape-tracker.md) for the human-readable curation record: what's out there, what influenced the design, and why the gaps (`sunset`, `rem-sleep`-as-a-skill) are real.
+
+## Evolution layer — machine-readable lineage
+
+Skills here spread by **memetic transmission** (directed, Lamarckian, horizontal), and at population scale individual choices aggregate into a stochastic-but-biased distribution — *not* random drift. Two machine-readable files make that legible so a **second agent can observe this suite's evolution and act on it without the maintainer in the loop**:
+
+- [`registry.json`](./registry.json) — the population snapshot: every skill's id, version, `parent` (the lineage pointer), `mutation` (what's novel), and `fitness_signal` (judge by realized outcome, not stars).
+- [`lineage.jsonl`](./lineage.jsonl) — the append-only **selection ledger**: one row per adopt / reject / watch / cold decision, each with the `context` that turns an apparently-random choice back into signal. The *rejections* are the negative dataset of what didn't propagate here, and why.
+- [`docs/lineage-spec.md`](./docs/lineage-spec.md) — the schema + the consumption protocol that doubles as the thesis's **falsifiable test**: *if no unprompted script can parse these and pull a skill, the "agents evolve" story is narration; when one does, selection has moved from the human to the population.*
 
 ## License
 
