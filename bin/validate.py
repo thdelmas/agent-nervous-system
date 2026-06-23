@@ -10,6 +10,7 @@ a consumer could actually use these files; exit 1 means it would choke. stdlib o
 """
 import json
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -92,6 +93,39 @@ with open(LINEAGE) as f:
             fail(f"lineage:{n}: peer_artifact {row.get('peer_artifact')!r} not in {sorted(ARTIFACTS)}")
         if row.get("skill_id") not in valid_skill_ids:
             fail(f"lineage:{n}: skill_id {row.get('skill_id')!r} is not a registry id or _suite")
+
+# --- prose count-drift: hardcoded "N organs/skills" claims must track the registry ---
+# Recurring failure mode (install.sh once stale at 4; README de-staled by hand): prose
+# enumerations drift from the population while the schema stays valid, so the old
+# validator passed a lying doc. Source of truth = len(skills). Two legitimate framings:
+# N (the whole nervous system) and N-1 (the organs the executive polls, excluding
+# consciousness-loop itself). Anything else is drift. Parameterized on N so it
+# self-adjusts when the Nth organ lands — no new magic number to forget.
+N = len(skills)
+WORDNUM = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
+           "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10}
+COUNT_RE = re.compile(
+    r"\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten)[ -]?(?:organs?|skills?|core)\b",
+    re.I)
+DECL_RE = re.compile(r"nervous system is (\d+)", re.I)
+PROSE_FILES = ["README.md", "install.sh",
+               "consciousness-loop/SKILL.md", "proprioception/SKILL.md"]
+for rel in PROSE_FILES:
+    path = os.path.join(ROOT, rel)
+    if not os.path.exists(path):
+        continue
+    with open(path) as f:
+        for n, line in enumerate(f, 1):
+            for m in COUNT_RE.finditer(line):
+                tok = m.group(1).lower()
+                val = int(tok) if tok.isdigit() else WORDNUM[tok]
+                if val not in (N, N - 1):
+                    fail(f"{rel}:{n}: organ-count {val} not in {{{N - 1}, {N}}} "
+                         f"— prose drifted from registry ({N} skills)")
+            for m in DECL_RE.finditer(line):
+                if int(m.group(1)) != N:
+                    fail(f"{rel}:{n}: 'nervous system is {m.group(1)}' "
+                         f"but registry has {N} skills")
 
 # --- report ---
 print(f"registry: {len(skills)} skills, {len(roots)} root(s): {', '.join(sorted(roots))}")
