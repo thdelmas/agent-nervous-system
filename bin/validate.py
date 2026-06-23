@@ -104,8 +104,10 @@ with open(LINEAGE) as f:
 N = len(skills)
 WORDNUM = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
            "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10}
+# Derive the spelled-number alternation from WORDNUM so the two can't drift apart
+# (a divergence would silently miss or KeyError below — found via playtime fuzzing).
 COUNT_RE = re.compile(
-    r"\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten)[ -]?(?:organs?|skills?|core)\b",
+    r"\b(" + "|".join([r"\d+"] + list(WORDNUM)) + r")[ -]?(?:organs?|skills?|core)\b",
     re.I)
 DECL_RE = re.compile(r"nervous system is (\d+)", re.I)
 PROSE_FILES = ["README.md", "install.sh",
