@@ -45,9 +45,9 @@ Append-only. **One JSON object per line**, one line per adopt/reject/watch/cold 
 | `date` | `YYYY-MM-DD` | When the decision was made. |
 | `selector` | string | Who/what made the call (the selection happens here, not in the "genome"). |
 | `peer_repo` | string | The observed peer (`owner/name` or org). |
-| `peer_artifact` | string | What was observed: `repo` / `spec` / `profile` / `org`. |
-| `skill_id` | string | Which suite skill it bears on; `_suite` for suite-wide. |
-| `verdict` | enum | `adopted` \| `rejected` \| `forked` \| `watch` \| `cold`. |
+| `peer_artifact` | string | What was observed: `repo` / `spec` / `profile` / `org` / `concept` (a body of prior-art/literature, not a single repo) / `skill` (an existing skill, peer or internal) / `experiment` (an internal probe/sim). |
+| `skill_id` | string | Which suite skill it bears on; `_suite` for suite-wide. Must resolve to a `registry.json` `id` or `_suite`. |
+| `verdict` | enum | `adopted` \| `rejected` \| `forked` \| `watch` \| `cold` \| `refined`. |
 | `reason` | string | Why — the rationale. |
 | `context` | string | The situational frame of the choice. **This is the field that makes a locally-deterministic choice legible** — the signal under the apparent noise. |
 
@@ -58,6 +58,14 @@ Append-only. **One JSON object per line**, one line per adopt/reject/watch/cold 
 - `rejected` — deliberately *not* copied. Records why a mutation didn't propagate **here** (often category mismatch, not low quality).
 - `watch` — promising; revisit next observation round.
 - `cold` — dead end (off-theme, name-collision, irrelevant).
+- `refined` — an **in-place improvement to an existing suite skill** (internal self-improvement), distinct from `forked` (which spawns a *new* skill). The selection event is the suite acting on itself, not on an external peer.
+
+### Genealogy & internal-origin rows
+
+Two clarifications the consumption protocol depends on:
+
+- **`registry.json` is the authoritative family tree.** The `parent` pointers there are the genealogy; build the provenance graph from them. A `lineage.jsonl` `forked` row records the *selection event* (a new skill was taken-and-modified) — look up its parent in the registry by `skill_id`, don't expect a `parent` edge on the row. (A `forked` row may even sit on a registry root, e.g. a keystone added by self-review whose own `parent` is `null`.)
+- **Internal-origin rows** use a `_self/<name>` `peer_repo` (e.g. `_self/playtime-sim`) and `peer_artifact` of `experiment` / `skill` / `spec`. These are the suite observing *itself* — the rows `proprioception` (the feedback organ) emits. They are first-class ledger entries, not external peer verdicts.
 
 ## The consumption protocol (the falsifiable test)
 

@@ -1,0 +1,16 @@
+name: validate
+
+# Runs the lineage-spec "falsifiable test" as a gate: a peer agent must be able
+# to parse registry.json + lineage.jsonl and build the provenance graph. If this
+# fails, the machine-readable evolution layer is broken and must not merge.
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate registry + lineage
+        run: python3 bin/validate.py

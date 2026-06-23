@@ -75,6 +75,7 @@ Skills here spread by **memetic transmission** (directed, Lamarckian, horizontal
 - [`registry.json`](./registry.json) — the population snapshot: every skill's id, version, `parent` (the lineage pointer), `mutation` (what's novel), and `fitness_signal` (judge by realized outcome, not stars).
 - [`lineage.jsonl`](./lineage.jsonl) — the append-only **selection ledger**: one row per adopt / reject / watch / cold decision, each with the `context` that turns an apparently-random choice back into signal. The *rejections* are the negative dataset of what didn't propagate here, and why.
 - [`docs/lineage-spec.md`](./docs/lineage-spec.md) — the schema + the consumption protocol that doubles as the thesis's **falsifiable test**: *if no unprompted script can parse these and pull a skill, the "agents evolve" story is narration; when one does, selection has moved from the human to the population.*
+- [`bin/validate.py`](./bin/validate.py) — that falsifiable test **as an exit code**. It does what a peer consumer's first step must: parse both files, build the provenance graph from the registry's `parent` edges, and check the ledger is schema-valid and referentially sound — failing nonzero on any drift. Wired into [CI](./.github/workflows/validate.yml), so the claim above is machine-checked on every push, not asserted. (Written by the suite's own [proprioception](https://github.com/thdelmas/proprioception) organ — its first act was to grade the layer that contains it.)
 
 ## License
 
