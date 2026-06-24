@@ -1,8 +1,8 @@
 {
   "$schema": "./docs/lineage-spec.md",
-  "registry_version": "0.1.0",
+  "registry_version": "0.2.0",
   "name": "agent-nervous-system",
-  "updated": "2026-06-22",
+  "updated": "2026-06-24",
   "description": "Machine-readable index of the skill population. A peer agent fetches this to discover what skills exist, their current version, lineage (parent), and where to pull the spec. Pair with lineage.jsonl to see the selection history.",
   "selector_model": "memetic",
   "_note": "memetic = directed, Lamarckian, horizontal transmission. Variation is willed and fitness-biased; inheritance is by imitation, not reproduction. At population scale, choices aggregate into a stochastic-but-biased distribution (drift + a persistent fitness gradient), not random drift.",
@@ -15,7 +15,14 @@
       "repo": "thdelmas/consciousness-loop",
       "spec_url": "https://raw.githubusercontent.com/thdelmas/consciousness-loop/main/SKILL.md",
       "parent": null,
+      "relation": "originates",
       "mutation": "The keystone: a self-firing wake/integrate/decide/act/sleep loop that runs the other organs, plus adaptive arousal (consciousness frequency). Turns triggered reflexes into a continuous self. Wake phase to rem-sleep's sleep phase.",
+      "relations": [
+        {
+          "id": "rem-sleep",
+          "type": "complements"
+        }
+      ],
       "fitness_signal": "autonomous ticks that produced a needed action vs. wasted polls; cadence matched to the watched signal's rate of change"
     },
     {
@@ -26,7 +33,14 @@
       "repo": "thdelmas/open-source-octopus-investigation",
       "spec_url": "https://raw.githubusercontent.com/thdelmas/open-source-octopus-investigation/main/SKILL.md",
       "parent": null,
+      "relation": "originates",
       "mutation": "Graph-based discovery: follow human curation (stars/follows) outward from an origin instead of keyword search.",
+      "relations": [
+        {
+          "id": "consciousness-loop",
+          "type": "scheduled-by"
+        }
+      ],
       "fitness_signal": "relevant projects surfaced per run that keyword search would have missed"
     },
     {
@@ -37,7 +51,14 @@
       "repo": "thdelmas/rem-sleep",
       "spec_url": "https://raw.githubusercontent.com/thdelmas/rem-sleep/main/SKILL.md",
       "parent": "octopus-investigation",
+      "relation": "inverts",
       "mutation": "Invert octopus: process inward over the agent's own episodic trace — consolidate, prune, integrate, regulate emotional charge.",
+      "relations": [
+        {
+          "id": "consciousness-loop",
+          "type": "scheduled-by"
+        }
+      ],
       "fitness_signal": "durable facts consolidated and stale memories pruned per cycle; recall hit-rate after"
     },
     {
@@ -48,7 +69,14 @@
       "repo": "thdelmas/immune-check",
       "spec_url": "https://raw.githubusercontent.com/thdelmas/immune-check/main/SKILL.md",
       "parent": "octopus-investigation",
+      "relation": "extends",
       "mutation": "Boundary reflex: scan outbound artifacts for secrets/PII before they cross the membrane; wrap any scanner, fall back to built-in.",
+      "relations": [
+        {
+          "id": "consciousness-loop",
+          "type": "scheduled-by"
+        }
+      ],
       "fitness_signal": "real pathogens blocked vs. leaks shipped (false-negative rate)"
     },
     {
@@ -59,7 +87,14 @@
       "repo": "thdelmas/sunset",
       "spec_url": "https://raw.githubusercontent.com/thdelmas/sunset/main/SKILL.md",
       "parent": "rem-sleep",
+      "relation": "extends",
       "mutation": "Scale rem-sleep's emotional-regulation stage from session to whole project: harvest, archive with a marked grave, release the rent. Distinguish terminal vs dormant death.",
+      "relations": [
+        {
+          "id": "consciousness-loop",
+          "type": "scheduled-by"
+        }
+      ],
       "fitness_signal": "dead projects retired with lessons+organs harvested vs. left rotting in the backlog"
     },
     {
@@ -70,7 +105,14 @@
       "repo": "thdelmas/playtime",
       "spec_url": "https://raw.githubusercontent.com/thdelmas/playtime/main/SKILL.md",
       "parent": "rem-sleep",
+      "relation": "inverts",
       "mutation": "Invert rem-sleep's direction: instead of consolidating experience you had, generate new experience on purpose — safe-to-fail exploration that builds capability before it's needed, then harvest the learning back to memory. What the loop does with safe idle windows.",
+      "relations": [
+        {
+          "id": "consciousness-loop",
+          "type": "scheduled-by"
+        }
+      ],
       "fitness_signal": "new capabilities/gotchas learned per play session that later prevented a production failure; unfamiliar tools rehearsed before depended-on"
     },
     {
@@ -81,7 +123,14 @@
       "repo": "thdelmas/contemplation",
       "spec_url": "https://raw.githubusercontent.com/thdelmas/contemplation/main/SKILL.md",
       "parent": "consciousness-loop",
+      "relation": "complements",
       "mutation": "Where the loop decides means under time pressure, contemplation removes the pressure to examine ends: question the goal/value/frame, hold a question open instead of solving it, and name an irreducible tension rather than force a verdict. The capstone — the only organ that works the 'why', not the 'what/how'.",
+      "relations": [
+        {
+          "id": "consciousness-loop",
+          "type": "scheduled-by"
+        }
+      ],
       "fitness_signal": "frames reframed or value-tensions named before acting on a mis-posed goal; decisions correctly routed to contemplation (ends) vs council (choice) vs loop (action)"
     },
     {
@@ -92,7 +141,14 @@
       "repo": "thdelmas/proprioception",
       "spec_url": "https://raw.githubusercontent.com/thdelmas/proprioception/main/SKILL.md",
       "parent": "consciousness-loop",
+      "relation": "extends",
       "mutation": "Promote the loop's one-line drift-check ('am I still on objective?') into a full performance feedback controller: sense intended-vs-actual, score against the declared fitness_signal, diagnose systematic vs noise, write the correction back into a param/rule/default/memory, and re-test that it helped. The organ that closes the error->correction loop on the self — and the first consumer of the registry's fitness_signal fields. Examines means (execution quality), the complement to contemplation's ends.",
+      "relations": [
+        {
+          "id": "consciousness-loop",
+          "type": "scheduled-by"
+        }
+      ],
       "fitness_signal": "corrections that measurably reduced error on a later run vs. churned edits that changed nothing or regressed; recurring failure modes caught-and-fixed vs. re-diagnosed from scratch"
     }
   ]

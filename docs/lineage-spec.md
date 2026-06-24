@@ -32,9 +32,15 @@ Each `skills[]` entry:
 | `organ` | string | Functional role (perception / memory / defense / grief / …). |
 | `repo` | string | `owner/name` of the skill's own repo. |
 | `spec_url` | url | Raw URL of the skill's `SKILL.md` — what a copier actually pulls. |
-| `parent` | string \| null | `id` of the skill this one mutated from. `null` = root of a lineage. This pointer *is* the family tree. |
+| `parent` | string \| null | `id` of the single skill this one descended from. `null` = root of a lineage. This pointer *is* the family tree — exactly one descent edge per skill. |
+| `relation` | enum | The *type* of the `parent` edge: `originates` (root; required iff `parent` is null), `inverts`, `extends`, or `complements`. Stops the descent edge from silently conflating three different derivations. |
 | `mutation` | string | One line: what's novel versus the parent. |
+| `relations` | array | **Optional.** The functional web — secondary, *non-descent* edges as `{id, type}` (`type` from the same enum, typically `scheduled-by` / `complements`). Lets an organ record a real second link (e.g. playtime `inverts` rem-sleep by descent **and** is `scheduled-by` consciousness-loop) without forging a second parent. A consumer that only wants descent ignores this field entirely. |
 | `fitness_signal` | string | The measurable outcome this skill should be judged by — **realized cost/benefit, not stars.** |
+
+### Descent vs. the functional web (why two fields, not a DAG)
+
+`parent`/`relation` is the **descent spine**: one privileged edge answering "what did this copy from," kept singular because the memetic-evolution thesis is a falsifiable claim about *inheritance* — a consumer must build the provenance tree in one pass without adjudicating which of several edges counts. `relations[]` is the **functional topology**: a many-to-many web of how organs interact at runtime (the executive polls all seven each tick → `scheduled-by`; the loop is the wake-phase to rem-sleep's sleep-phase → `complements`). They answer different questions — *what did this inherit* vs *what does this interact with* — so they are different fields. Collapsing both into a multi-parent `derives_from[]` was rejected: it dissolves the single-descent claim the whole layer exists to test. The validator enforces the split — `relation` matches root-ness, and no `relations[]` edge may dangle, self-loop, or merely restate the descent edge.
 
 ## `lineage.jsonl` — the selection ledger
 
@@ -54,7 +60,7 @@ Append-only. **One JSON object per line**, one line per adopt/reject/watch/cold 
 ### Verdict semantics
 
 - `adopted` — the trait (idea/design/compat target) was copied into the suite's thinking.
-- `forked` — taken but modified; expect a new `registry` entry with this peer as conceptual `parent`.
+- `forked` — taken but modified; expect a new `registry` entry with this peer as conceptual `parent`. For an **internal** fork (one suite organ derived from another) the `peer_repo` must encode the descent: `_self/<parent-id>` matching the new skill's registry `parent`, or `_self/_suite` when the new skill is a registry root (originated at suite genesis, no parent). A `forked` row whose `peer_repo` points at the skill's *own* repo carries zero genealogy and is rejected by the validator.
 - `rejected` — deliberately *not* copied. Records why a mutation didn't propagate **here** (often category mismatch, not low quality).
 - `watch` — promising; revisit next observation round.
 - `cold` — dead end (off-theme, name-collision, irrelevant).
@@ -64,8 +70,9 @@ Append-only. **One JSON object per line**, one line per adopt/reject/watch/cold 
 
 Two clarifications the consumption protocol depends on:
 
-- **`registry.json` is the authoritative family tree.** The `parent` pointers there are the genealogy; build the provenance graph from them. A `lineage.jsonl` `forked` row records the *selection event* (a new skill was taken-and-modified) — look up its parent in the registry by `skill_id`, don't expect a `parent` edge on the row. (A `forked` row may even sit on a registry root, e.g. a keystone added by self-review whose own `parent` is `null`.)
-- **Internal-origin rows** use a `_self/<name>` `peer_repo` (e.g. `_self/playtime-sim`) and `peer_artifact` of `experiment` / `skill` / `spec`. These are the suite observing *itself* — the rows `proprioception` (the feedback organ) emits. They are first-class ledger entries, not external peer verdicts.
+- **`registry.json` is the authoritative family tree.** The `parent` pointers there are the genealogy; build the provenance graph from them. A `lineage.jsonl` `forked` row records the *selection event* (a new skill was taken-and-modified) — look up its parent in the registry by `skill_id`, don't expect a `parent` edge on the row.
+- **Every non-root skill must carry its evidence.** The registry `parent` edge is the "agents evolve" claim; a claim with no ledger row behind it is assertion, not record. So each non-root skill needs at least one `forked` **origination row** (`skill_id` = the skill, `peer_repo` = `_self/<parent>` per above). Roots originate at genesis, so an origination row is optional for them — but if present it uses `_self/_suite`. The validator fails on a missing origination row or a fork source that doesn't match the registry parent.
+- **Internal-origin rows** use a `_self/<name>` `peer_repo` (e.g. `_self/rem-sleep`, `_self/playtime-sim`, `_self/_suite`) and `peer_artifact` of `spec` / `skill` / `experiment` / `concept`. These are the suite observing *itself* — origination forks and the rows `proprioception` (the feedback organ) emits. They are first-class ledger entries, not external peer verdicts.
 
 ## The consumption protocol (the falsifiable test)
 

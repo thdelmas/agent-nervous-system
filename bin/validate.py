@@ -20,8 +20,14 @@ LINEAGE = os.path.join(ROOT, "lineage.jsonl")
 # Schemas — keep in lockstep with docs/lineage-spec.md.
 VERDICTS = {"adopted", "rejected", "forked", "watch", "cold", "refined"}
 ARTIFACTS = {"repo", "spec", "profile", "org", "concept", "skill", "experiment"}
+# The single source of truth for the relation vocabulary. registry.json carries only
+# the string values; this set is the only place the enum is declared, so the two
+# can't drift (the failure mode logged earlier for the count-regex/dict pair).
+# `originates` is reserved for the descent edge of a root (parent == null); the rest
+# type a real edge — either the descent edge (`relation`) or a functional web edge.
+RELATION_TYPES = {"originates", "inverts", "extends", "complements", "scheduled-by"}
 REGISTRY_FIELDS = {"id", "version", "organ", "repo", "spec_url", "parent",
-                   "mutation", "fitness_signal"}
+                   "relation", "mutation", "fitness_signal"}
 LINEAGE_FIELDS = {"date", "selector", "peer_repo", "peer_artifact", "skill_id",
                   "verdict", "reason", "context"}
 
@@ -49,6 +55,32 @@ for s in skills:
     if parent is not None and parent not in idset:
         fail(f"registry: skill {sid!r} parent {parent!r} is not a registry id")
 
+    # The `relation` types the single descent edge; `parent==null` iff `originates`.
+    rel = s.get("relation")
+    if rel not in RELATION_TYPES:
+        fail(f"registry: skill {sid!r} relation {rel!r} not in {sorted(RELATION_TYPES)}")
+    elif (parent is None) != (rel == "originates"):
+        fail(f"registry: skill {sid!r} relation/parent mismatch — a root (parent=null) "
+             f"must use 'originates' and only a root may (got parent={parent!r}, relation={rel!r})")
+
+    # `relations[]` is the optional functional web — secondary, non-descent edges.
+    # It must never silently restate the descent edge or dangle.
+    web = s.get("relations", [])
+    if not isinstance(web, list):
+        fail(f"registry: skill {sid!r} relations must be a list")
+        web = []
+    for e in web:
+        eid, etype = e.get("id"), e.get("type")
+        if eid not in idset:
+            fail(f"registry: skill {sid!r} relations edge id {eid!r} is not a registry id")
+        if etype not in RELATION_TYPES:
+            fail(f"registry: skill {sid!r} relations edge type {etype!r} not in {sorted(RELATION_TYPES)}")
+        if eid == sid:
+            fail(f"registry: skill {sid!r} relations edge points at itself")
+        if eid == parent and etype == rel:
+            fail(f"registry: skill {sid!r} relations edge {eid!r}/{etype!r} just restates the "
+                 f"descent edge — the web is for *secondary* relations, not a copy of `parent`")
+
 # Build the provenance graph from registry parent pointers; require acyclic + a root.
 parent_of = {s.get("id"): s.get("parent") for s in skills}
 
@@ -73,6 +105,7 @@ if not roots:
 # --- lineage.jsonl: the append-only selection ledger ---
 valid_skill_ids = idset | {"_suite"}
 rows = 0
+ledger = []  # retained for cross-row genealogy checks below
 with open(LINEAGE) as f:
     for n, line in enumerate(f, 1):
         line = line.strip()
@@ -84,6 +117,7 @@ with open(LINEAGE) as f:
         except json.JSONDecodeError as e:
             fail(f"lineage:{n}: invalid JSON ({e})")
             continue
+        ledger.append(row)
         missing = LINEAGE_FIELDS - set(row)
         if missing:
             fail(f"lineage:{n}: missing fields {sorted(missing)}")
@@ -93,6 +127,38 @@ with open(LINEAGE) as f:
             fail(f"lineage:{n}: peer_artifact {row.get('peer_artifact')!r} not in {sorted(ARTIFACTS)}")
         if row.get("skill_id") not in valid_skill_ids:
             fail(f"lineage:{n}: skill_id {row.get('skill_id')!r} is not a registry id or _suite")
+
+# --- genealogical coherence: the registry parent-tree must be ledger-evidenced ---
+# Schema + referential checks above can pass while the family tree is pure assertion:
+# a `forked` row can point peer_repo at the skill's OWN repo (fork-from-self, zero
+# descent), or a skill can have a registry parent with no origination row at all.
+# Both happened (3 self-pointers; rem-sleep/immune-check/sunset had no fork row,
+# sunset none at all) and the old validator passed them green. The `parent` edge IS
+# the "agents evolve" claim, so make it falsifiable: every non-root skill needs a
+# `forked` origination row, and every internal `forked` row's source must match the
+# registry parent. Convention: peer_repo == "_self/<parent>", or "_self/_suite" for
+# a root (originated at suite genesis, no external parent).
+forks_by_skill = {}
+for row in ledger:
+    if row.get("verdict") != "forked":
+        continue
+    sid = row.get("skill_id")
+    if sid not in idset:  # _suite forks aren't organ originations
+        continue
+    forks_by_skill.setdefault(sid, []).append(row)
+    parent = parent_of.get(sid)
+    expected = f"_self/{parent}" if parent else "_self/_suite"
+    got = row.get("peer_repo")
+    if got != expected:
+        kind = "root (no parent)" if parent is None else f"parent {parent!r}"
+        fail(f"lineage: forked row for {sid!r} has peer_repo {got!r} but registry "
+             f"says {kind} — expected {expected!r} (fork source must encode descent)")
+for sid in idset:
+    if parent_of.get(sid) is None:
+        continue  # roots originate; an origination row is optional for them
+    if sid not in forks_by_skill:
+        fail(f"lineage: skill {sid!r} (registry parent {parent_of[sid]!r}) has no "
+             f"`forked` origination row — its parentage is asserted, not ledger-evidenced")
 
 # --- prose count-drift: hardcoded "N organs/skills" claims must track the registry ---
 # Recurring failure mode (install.sh once stale at 4; README de-staled by hand): prose
@@ -138,5 +204,6 @@ if errors:
         print(f"  x {e}")
     sys.exit(1)
 print("\nOK — registry + lineage parse, are schema-valid and referentially sound,")
-print("and the provenance graph is acyclic with a root. The falsifiable test passes.")
+print("the provenance graph is acyclic with a root, and every parent edge is")
+print("ledger-evidenced by a coherent origination row. The falsifiable test passes.")
 sys.exit(0)
