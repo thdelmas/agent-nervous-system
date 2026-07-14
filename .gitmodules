@@ -22,3 +22,6 @@
 [submodule "proprioception"]
 	path = proprioception
 	url = https://github.com/thdelmas/proprioception.git
+[submodule "exteroception"]
+	path = exteroception
+	url = https://github.com/thdelmas/exteroception.git

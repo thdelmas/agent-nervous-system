@@ -16,6 +16,7 @@ skills=(
   "playtime:playtime"
   "contemplation:contemplation"
   "proprioception:proprioception"
+  "exteroception:exteroception"
 )
 
 case "$target" in
@@ -31,6 +32,8 @@ for entry in "${skills[@]}"; do
   if [ "$mode" = "skillmd" ]; then
     mkdir -p "$dest/$name"
     cp "$here/$dir/SKILL.md" "$dest/$name/SKILL.md"
+    # ship the skill's helper scripts alongside it, when it has any
+    [ -d "$here/$dir/scripts" ] && cp -r "$here/$dir/scripts" "$dest/$name/"
     echo "  ✓ $name"
   else
     mkdir -p "$dest"
@@ -39,4 +42,4 @@ for entry in "${skills[@]}"; do
     echo "  ✓ $name (cursor)"
   fi
 done
-echo "Done. Invoke /consciousness-loop, /rem-sleep, /immune-check, /sunset, /playtime, /contemplation, /proprioception, /open-source-octopus-investigation."
+echo "Done. Invoke /consciousness-loop, /rem-sleep, /immune-check, /sunset, /playtime, /contemplation, /proprioception, /exteroception, /open-source-octopus-investigation."

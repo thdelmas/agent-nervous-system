@@ -2,7 +2,7 @@
   "$schema": "./docs/lineage-spec.md",
   "registry_version": "0.2.0",
   "name": "agent-nervous-system",
-  "updated": "2026-06-24",
+  "updated": "2026-07-14",
   "description": "Machine-readable index of the skill population. A peer agent fetches this to discover what skills exist, their current version, lineage (parent), and where to pull the spec. Pair with lineage.jsonl to see the selection history.",
   "selector_model": "memetic",
   "_note": "memetic = directed, Lamarckian, horizontal transmission. Variation is willed and fitness-biased; inheritance is by imitation, not reproduction. At population scale, choices aggregate into a stochastic-but-biased distribution (drift + a persistent fitness gradient), not random drift.",
@@ -135,7 +135,7 @@
     },
     {
       "id": "proprioception",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "organ": "feedback",
       "direction": "reflexive",
       "repo": "thdelmas/proprioception",
@@ -150,6 +150,28 @@
         }
       ],
       "fitness_signal": "corrections that measurably reduced error on a later run vs. churned edits that changed nothing or regressed; recurring failure modes caught-and-fixed vs. re-diagnosed from scratch"
+    },
+    {
+      "id": "exteroception",
+      "version": "0.1.0",
+      "organ": "perception",
+      "direction": "proximal",
+      "repo": "thdelmas/exteroception",
+      "spec_url": "https://raw.githubusercontent.com/thdelmas/exteroception/main/SKILL.md",
+      "parent": "proprioception",
+      "relation": "inverts",
+      "mutation": "Invert proprioception's diff-against-a-stored-baseline sense from the self to the environment: at wake, capture the actual state of the watched surfaces (working trees, conversations, clocks, services, due forecasts), diff it against the write-time-stale memory baseline, and brief the deltas ranked by urgency. The near-field wake sense — read-only, bounded, diff-not-dump — that ends blind session-starts; complements octopus's far-field exploratory perception.",
+      "relations": [
+        {
+          "id": "consciousness-loop",
+          "type": "scheduled-by"
+        },
+        {
+          "id": "octopus-investigation",
+          "type": "complements"
+        }
+      ],
+      "fitness_signal": "state changes surfaced at wake that would otherwise have been hit mid-task or missed entirely (stranded pushes, expired clocks, unanswered threads, due forecasts) per minute of sweep; blind session-starts avoided"
     }
   ]
 }
