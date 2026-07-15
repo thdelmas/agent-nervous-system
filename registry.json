@@ -135,21 +135,21 @@
     },
     {
       "id": "proprioception",
-      "version": "0.2.0",
+      "version": "0.3.0",
       "organ": "feedback",
       "direction": "reflexive",
       "repo": "thdelmas/proprioception",
       "spec_url": "https://raw.githubusercontent.com/thdelmas/proprioception/main/SKILL.md",
       "parent": "consciousness-loop",
       "relation": "extends",
-      "mutation": "Promote the loop's one-line drift-check ('am I still on objective?') into a full performance feedback controller: sense intended-vs-actual, score against the declared fitness_signal, diagnose systematic vs noise, write the correction back into a param/rule/default/memory, and re-test that it helped. The organ that closes the error->correction loop on the self — and the first consumer of the registry's fitness_signal fields. Examines means (execution quality), the complement to contemplation's ends.",
+      "mutation": "Promote the loop's one-line drift-check ('am I still on objective?') into a full performance feedback controller: sense intended-vs-actual, score against the declared fitness_signal, diagnose systematic vs noise, write the correction back into a param/rule/default/memory, and re-test that it helped. The organ that closes the error->correction loop on the self — and the first consumer of the registry's fitness_signal fields. Examines means (execution quality), the complement to contemplation's ends. Grades three objects: actions (the cycle), judgments (the forecast ledger, v0.2.0), and allocation (the attention schema, v0.3.0 — what deserved attention at all; the suite's weak-form AST-1, learned retrospectively since capture cannot be caught from inside capture).",
       "relations": [
         {
           "id": "consciousness-loop",
           "type": "scheduled-by"
         }
       ],
-      "fitness_signal": "corrections that measurably reduced error on a later run vs. churned edits that changed nothing or regressed; recurring failure modes caught-and-fixed vs. re-diagnosed from scratch"
+      "fitness_signal": "corrections that measurably reduced error on a later run vs. churned edits that changed nothing or regressed; recurring failure modes caught-and-fixed vs. re-diagnosed from scratch; attention pulls that were predicted and actually pre-empted a capture vs. a profile never read at decide-time"
     },
     {
       "id": "exteroception",
