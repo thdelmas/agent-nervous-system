@@ -24,7 +24,7 @@ The framing is the point: not a pile of tools, but a coherent set of self-regula
 
 ## Reading
 
-- [Auditing a deployed agent scaffold against the Butlin et al. consciousness indicators](docs/butlin-indicator-audit.md) — all fourteen indicator properties, one by one, from inside the workshop: six are substrate-level and untouchable by any scaffold, one was built because of the audit (after its first design failed our gate), one was deliberately refused. A capability map, not a consciousness claim.
+- [Growing an agent a nervous system, then checking it against the consciousness science](docs/butlin-indicator-audit.md): six months of observed decay, a four-week build, and an audit against Butlin et al.'s fourteen indicator properties. Six are substrate-level and untouchable by any scaffold; one was built because of the audit (after its first design failed our gate); one was deliberately refused. A capability map, not a consciousness claim.
 
 ## Clone the whole nervous system
 
