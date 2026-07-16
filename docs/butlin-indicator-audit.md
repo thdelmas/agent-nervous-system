@@ -60,7 +60,7 @@ The ledger's first rows, dated 2026-06-22, record every adoption and rejection w
 
 What was missing in the field wasn't memory infrastructure. It was **behavioral rituals**: things an agent does at the right moment. Consolidate at session end. Sweep the world at wake. Scan before publishing.
 
-That niche was, as far as the crawl could see, empty. One kin project independently reached the same instincts; it's row one of the ledger, verdict "adopted," reason "nearest kin and collaboration lead."
+That niche was, as far as the crawl could see, empty. One kin builder (obra) had independently reached the same instincts; it's row one of the ledger, verdict "adopted," reason "nearest kin and collaboration lead," and rem-sleep's design borrows from two of his repos, credited below and in the ledger.
 
 ## The hypothesis
 
@@ -75,7 +75,7 @@ Two commitments made this testable rather than just a cute metaphor:
 
 The genesis order matters, because each organ after the first was pulled by an observed gap, and the ledger records the pull. Not always at fork time, though: three origination rows were backfilled two days late, when an audit caught that the parentage claims had "zero ledger corroboration." The backfill markers are still visible in the rows. That episode belongs to the method-catches-itself section below; I flag it here so the reader checking dates isn't surprised. Condensed from the dated rows:
 
-**Day one (2026-06-22).** Four rituals derived from the survey and the decay list. **Rem-sleep** (consolidation) was forked from the discovery crawler by inverting its direction: process inward over the agent's own experience instead of outward over the world. **Immune-check** (boundary scan) is the same fork, redirected at outbound artifacts. **Sunset** (retirement) was forked from rem-sleep by rescaling its emotional-regulation stage from session to whole project. Plus the original crawler itself.
+**Day one (2026-06-22).** Four rituals derived from the survey and the decay list. **Rem-sleep** (consolidation) has the suite's most mixed pedigree, and the ledger records both halves: its mechanical shape was forked from the discovery crawler by inverting its direction (process inward over the agent's own experience instead of outward over the world), but its design borrows openly from the kin project the survey found. The adoption rows credit obra's private-journal-mcp for the emotional-regulation stage ("borrow the design, keep the skill form") and obra's episodic-memory for the consolidation instinct. Not our invention; our assembly, with the debts on file. **Immune-check** (boundary scan) is the crawler fork again, redirected at outbound artifacts. **Sunset** (retirement) was forked from rem-sleep by rescaling its emotional-regulation stage from session to whole project. Plus the original crawler itself.
 
 Note the pattern: organs were mostly not invented. They were **forked from each other by inversion or rescaling**, and each fork is a ledger row with the transformation named.
 
