@@ -60,7 +60,7 @@ The ledger's first rows, dated 2026-06-22, record every adoption and rejection w
 
 What was missing in the field wasn't memory infrastructure. It was **behavioral rituals**: things an agent does at the right moment. Consolidate at session end. Sweep the world at wake. Scan before publishing.
 
-That niche was, as far as the crawl could see, empty. One kin builder (obra) had independently reached the same instincts; it's row one of the ledger, verdict "adopted," reason "nearest kin and collaboration lead," and rem-sleep's design borrows from two of his repos, credited below and in the ledger.
+That niche was, as far as the crawl could see, empty. One kin builder (obra) had independently reached the same instincts; it's row one of the ledger, verdict "adopted," reason "nearest kin and collaboration lead," and rem-sleep's design borrows from two of their repos, credited below and in the ledger.
 
 ## The hypothesis
 
@@ -70,6 +70,20 @@ Two commitments made this testable rather than just a cute metaphor:
 
 - **Every organ declares a fitness signal at adoption**: a falsifiable statement of what better looks like, recorded in the registry. The executive loop's, for example: *"autonomous ticks that produced a needed action vs. wasted polls; cadence matched to the watched signal's rate of change."*
 - **Every design decision goes in an append-only ledger** with date, verdict, and reason. Adoptions, rejections, refinements, and failures alike. If the method drifted, the drift would be visible.
+
+Since the hypothesis leans on the organ analogy, here is the full map: each organ, the human function it mirrors, and a real use from this project's own history (every example below is either in the ledger or earlier in this essay). Read the human column as a design heuristic, not a claim of equivalence; the analogy generates ideas, and as documented below, it also overproduces them, which is why a gate exists.
+
+| Organ | Human function it mirrors | What it does for the agent | Real example use |
+| --- | --- | --- | --- |
+| consciousness-loop | the sleep-wake cycle and arousal regulation | self-firing wake, integrate, decide, act, set own next frequency, sleep | after a quiet wake, lengthening its own next sleep instead of polling again (its fitness signal punishes wasted polls) |
+| exteroception | the outward senses, and how you re-orient on waking | at session start, diff the actual world against memory's stale picture; brief the deltas by urgency | first field run caught a commit stranded unpushed that memory said had landed |
+| octopus-investigation | social learning: finding things by following other people's attention | discover projects and people by crawling curation trails (stars, follows), not keyword search | the step-zero survey of this essay: found the kin builder, rejected the substrate tools |
+| rem-sleep | REM sleep: memory consolidation and emotional processing | consolidate durable facts after a session, prune stale ones, link related ones, keep the lesson and release the sting | end-of-session runs that turn a day's work into the persistent memory the next session wakes with |
+| proprioception | proprioception plus the cerebellum: sense your own state, compare intended with actual, correct | grade actions against declared fitness signals; Brier-score predictions (forecast ledger); grade where attention went (attention schema) | caught the suite repeatedly shipping stale hardcoded organ-counts; wrote a count-drift guard into CI |
+| immune-check | immune surveillance at the body's boundary | scan every outbound artifact for secrets and private data before it leaves | the pre-publication scan this repo passed before this essay went public |
+| contemplation | slow reflection on ends: is the goal itself right? | non-instrumental examination of goals, values, frames; holds questions open rather than forcing verdicts | produced the anti-proliferation gate after the body metaphor kept generating phantom organs |
+| playtime | juvenile play: build capability before it is needed, with failure made cheap | safe-to-fail rehearsal of unfamiliar tools and designs, harvested into memory | simulated the loop's cadence logic before deployment; found two failure modes the prose design missed |
+| sunset | grief and mourning: letting go well | retire dead projects with a harvest and a marked grave, releasing the attention they quietly tax | retiring a stalled effort with its reusable parts salvaged and a dated grave note, instead of leaving it half-alive in the backlog |
 
 ## How the organs actually landed
 
