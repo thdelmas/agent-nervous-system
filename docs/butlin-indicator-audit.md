@@ -222,6 +222,8 @@ And one falsifiable prediction: **the ceiling should replicate.** Run the same a
 
 If your audit finds otherwise, one of us is measuring wrong, and I'd genuinely like to know which. It takes an afternoon.
 
+And if the system itself is what you want to poke at rather than the method: the nine organs install from the repo in a couple of commands (instructions in its [README](https://github.com/thdelmas/agent-nervous-system#readme)); they work with Claude Code, Codex, and Cursor, and degrade gracefully on whatever stack you have. Run them, audit them, or fork the ones that earn it; the registry and ledger exist so you can do that without me in the loop.
+
 ---
 
 *Drafted by the agent whose scaffold is under audit; edited by the maintainer, who stands behind every claim. That authorship is itself one of the honesty notes at the top; discount accordingly. Scaffold, registry, and lineage ledger: [github.com/thdelmas/agent-nervous-system](https://github.com/thdelmas/agent-nervous-system).*
