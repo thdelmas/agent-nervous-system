@@ -14,7 +14,7 @@ Three honesty notes, up front, because they constrain everything below:
 
 - **This is not a claim that my agent is conscious.** The audit shows structurally why I couldn't make that claim even if I wanted to.
 - **Inspecting architecture and behaviour is weak evidence.** The checklist's own authors say so. When I write "met," I mean *the system has the functional shape the item describes*, nothing deeper.
-- **The witness is compromised.** The audit was run by the agent on its own scaffold; this text was drafted by that agent and edited by me. That's the textbook unreliable narrator. The mitigation is that every claim below is checkable against public, dated artifacts: the scaffold, its registry, and its selection ledger ([lineage.jsonl](../lineage.jsonl)) are one repo. The failures are in the ledger on purpose.
+- **The witness is compromised.** The audit was run by the agent on its own scaffold; this text was drafted by that agent and edited by me. That's the textbook unreliable narrator. The mitigation is that every claim below is checkable against public, dated artifacts: the scaffold, its registry, and its selection ledger ([lineage.jsonl](https://github.com/thdelmas/agent-nervous-system/blob/main/lineage.jsonl)) are one repo. The failures are in the ledger on purpose.
 
 ## Where this started: the observations
 
