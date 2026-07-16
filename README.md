@@ -22,6 +22,10 @@ Each skill works with **Claude Code**, **Codex**, and **Cursor**, and operates o
 
 The framing is the point: not a pile of tools, but a coherent set of self-regulating functions. The **consciousness-loop** is the executive at the center; most organs are functions it schedules — discover (perception), remember (memory), protect (immunity), release (grief), grow (development) — while **contemplation** sits above the loop, examining the *ends* the loop pursues by *means*. Without the loop they're a body with no pulse; the loop is what makes them one agent; contemplation is what keeps that agent pointed at something it would endorse on reflection; and **proprioception** is what lets it get *better* — closing the error→correction loop the others leave open. Five relationships tie the suite together: the loop is the **wake phase** to rem-sleep's **sleep phase**; **playtime** is the proactive complement to rem-sleep's reactive memory (generate new experience ↔ consolidate the experience you had); **contemplation** examines the *why* that the loop, deciding *what*, has no time to; **proprioception** examines *how well* — the means-feedback that contemplation (ends) and the loop (one-line drift-check) both leave un-rigorous, and the first consumer of the registry's `fitness_signal` fields; and **exteroception** is proprioception's paired sense — the same diff-against-a-stored-baseline mechanism pointed outward (remembered world vs actual world) instead of inward, feeding the loop's wake phase the sensory input its decide step runs on.
 
+## Reading
+
+- [Auditing a deployed agent scaffold against the Butlin et al. consciousness indicators](docs/butlin-indicator-audit.md) — all fourteen indicator properties, one by one, from inside the workshop: six are substrate-level and untouchable by any scaffold, one was built because of the audit (after its first design failed our gate), one was deliberately refused. A capability map, not a consciousness claim.
+
 ## Clone the whole nervous system
 
 ```bash
