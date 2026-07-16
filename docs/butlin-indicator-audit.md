@@ -6,7 +6,7 @@
 
 ## What this is
 
-Over four weeks in mid-2026 I grew a long-running LLM agent a set of nine self-maintenance "organs," following something like an experimental method: observe a recurring failure, hypothesize the smallest function that would fix it, build it with a declared falsifiable fitness signal, record the decision in an append-only ledger, and let a dedicated feedback organ grade the results — including the method's own mistakes, of which there were several worth reporting.
+Since January 2026 I've been running a persistent, long-lived LLM agent as daily working infrastructure — cross-session memory, a knowledge base it maintains, unattended tasks. Six months of that is long enough for the failure modes to stop looking like incidents and start looking like anatomy. In June–July, in a focused four-week burst, I answered them by growing the agent a set of nine self-maintenance "organs," following something like an experimental method: observe a recurring failure, hypothesize the smallest function that would fix it, build it with a declared falsifiable fitness signal, record the decision in an append-only ledger, and let a dedicated feedback organ grade the results — including the method's own mistakes, of which there were several worth reporting.
 
 Then I ran the result against an external rubric I didn't write: the fourteen **indicator properties** from Butlin, Long et al., *Consciousness in Artificial Intelligence* (2023, arXiv:2308.08708) — a checklist distilled from the main scientific theories of consciousness, built to evaluate AI systems. Their conclusion was that no existing AI system is a serious candidate for consciousness. Nothing here challenges that. What the audit produced instead was a map of what any agent scaffold can and cannot touch — and the boundary turned out to be the most interesting finding.
 
@@ -18,7 +18,7 @@ Three honesty notes, up front, because they constrain everything below:
 
 ## Where this started: the observations
 
-The starting facts were mundane and operational. A long-running agent — one that works with you daily across sessions, holds persistent memory, runs unattended tasks — decays in specific, *recurring* ways:
+The starting facts were mundane, operational, and collected the slow way: six months (January–June 2026) of working daily with a persistent agent before any organ existed. Over that window, the same failures kept recurring — not as one-off bugs but as a stable pattern:
 
 1. **Every session starts blind.** Memory is written at some past moment; the world moves while the agent sleeps. Sessions kept opening with confident actions on stale state.
 2. **Experience evaporates.** What a session learned stayed in that session unless something deliberately consolidated it.
