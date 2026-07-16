@@ -12,7 +12,7 @@ Separately, consciousness scientists published a checklist: fourteen properties 
 
 I scored my system against that checklist, honestly, item by item. Three results:
 
-1. Six of the fourteen properties live inside the neural network itself, decided by the lab that trained the model. Nothing anyone builds around a model (prompts, tools, memory, loops) can touch them. That's a ceiling for the entire ecosystem of agent tooling, not just mine.
+1. Six of the fourteen properties (strictly five, plus half of a sixth; the essay keeps the count honest) live inside the neural network itself, decided by the lab that trained the model. Nothing anyone builds around a model (prompts, tools, memory, loops) can touch them. That's a ceiling for the entire ecosystem of agent tooling, not just mine.
 2. The audit made me build one new capability: a way for the agent to notice, after the fact, where its attention actually went.
 3. It also made me refuse to build one: an "introspection" feature that, without access to the model's internals, would just be the agent writing confident fiction about itself.
 
@@ -71,7 +71,7 @@ Two commitments made this testable rather than just a cute metaphor:
 - **Every organ declares a fitness signal at adoption**: a falsifiable statement of what better looks like, recorded in the registry. The executive loop's, for example: *"autonomous ticks that produced a needed action vs. wasted polls; cadence matched to the watched signal's rate of change."*
 - **Every design decision goes in an append-only ledger** with date, verdict, and reason. Adoptions, rejections, refinements, and failures alike. If the method drifted, the drift would be visible.
 
-Since the hypothesis leans on the organ analogy, here is the full map: each organ, the human function it mirrors, and a real use from this project's own history (every example below is either in the ledger or earlier in this essay). Read the human column as a design heuristic, not a claim of equivalence; the analogy generates ideas, and as documented below, it also overproduces them, which is why a gate exists.
+Since the hypothesis leans on the organ analogy, here is the full map: each organ, the human function it mirrors, and a real use from this project's own history. The specific incidents are documented in the ledger or later in this essay; three rows (the loop, rem-sleep, sunset) describe routine practice rather than a single dated event. Read the human column as a design heuristic, not a claim of equivalence; the analogy generates ideas, and as documented below, it also overproduces them, which is why a gate exists.
 
 | Organ | Human function it mirrors | What it does for the agent | Real example use |
 | --- | --- | --- | --- |
