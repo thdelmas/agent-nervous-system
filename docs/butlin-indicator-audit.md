@@ -2,8 +2,6 @@
 
 *A capability map, not a consciousness claim.*
 
-**Status: draft for review — not yet published.**
-
 ---
 
 ## Summary
@@ -189,6 +187,6 @@ The checklist is runnable by anyone with an agent framework and an afternoon: ta
 **References**
 
 - Butlin, P., Long, R., et al. (2023). *Consciousness in Artificial Intelligence: Insights from the Science of Consciousness.* arXiv:2308.08708.
-- Yalon, N., Goldstein, A., Mudrik, L., Geva, M. (2026). arXiv:2602.02467 (mechanistic evaluation of LLM introspection; activation-level access and hidden-state intervention).
+- Yalon, N. S., Goldstein, A., Mudrik, L., Geva, M. (2026). *Indications of Belief-Guided Agency and Meta-Cognitive Monitoring in Large Language Models.* arXiv:2602.02467.
 - Graziano, M. (2013). *Consciousness and the Social Brain.* (Attention Schema Theory.)
 - Baars, B. (1988); Dehaene, S. (2014). (Global Workspace Theory.)
