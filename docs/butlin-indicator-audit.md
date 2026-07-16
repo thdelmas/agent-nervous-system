@@ -10,7 +10,7 @@ Since January 2026 I've been running a persistent, long-lived LLM agent as daily
 
 In June and July, in a focused four-week burst, I answered them by growing the agent a set of nine self-maintenance "organs." The method was roughly experimental: observe a recurring failure, hypothesize the smallest function that would fix it, build it with a declared falsifiable fitness signal, record the decision in an append-only ledger, and let a dedicated feedback organ grade the results. That includes the method's own mistakes, of which there were several worth reporting.
 
-Then I ran the result against an external rubric I didn't write: the fourteen **indicator properties** from Butlin, Long et al., *Consciousness in Artificial Intelligence* (2023, arXiv:2308.08708). It's a checklist distilled from the main scientific theories of consciousness, built to evaluate AI systems. Their conclusion was that no existing AI system is a serious candidate for consciousness. Nothing here challenges that.
+Then I ran the result against an external rubric I didn't write: the fourteen **indicator properties** from Butlin, Long et al., *Consciousness in Artificial Intelligence* (2023, [arXiv:2308.08708](https://arxiv.org/abs/2308.08708)). It's a checklist distilled from the main scientific theories of consciousness, built to evaluate AI systems. Their conclusion was that no existing AI system is a serious candidate for consciousness. Nothing here challenges that.
 
 What the audit produced instead was a map of what any agent scaffold can and cannot touch. The boundary turned out to be the most interesting finding.
 
@@ -131,7 +131,7 @@ One item asks for introspection-like self-monitoring guiding belief updates. A s
 
 We refused, and this is the part I most want other builders to take.
 
-The researchers who test whether LLM introspection is *real* (Yalon et al. 2026, arXiv:2602.02467) do it mechanistically: they access the network's internal states, intervene on them, and check whether the model's self-reports track the intervention. **Self-report is the thing their method exists to route around.**
+The researchers who test whether LLM introspection is *real* (Yalon et al. 2026, [arXiv:2602.02467](https://arxiv.org/abs/2602.02467)) do it mechanistically: they access the network's internal states, intervene on them, and check whether the model's self-reports track the intervention. **Self-report is the thing their method exists to route around.**
 
 With no access to internals, my "introspection module" could only be the agent generating confident fiction about itself. Worse: fiction *incentivized by a checklist*, which is how you train a system to perform a property rather than have it.
 
@@ -192,7 +192,7 @@ If your audit finds otherwise, one of us is measuring wrong, and I'd genuinely l
 
 **References**
 
-- Butlin, P., Long, R., et al. (2023). *Consciousness in Artificial Intelligence: Insights from the Science of Consciousness.* arXiv:2308.08708.
-- Yalon, N. S., Goldstein, A., Mudrik, L., Geva, M. (2026). *Indications of Belief-Guided Agency and Meta-Cognitive Monitoring in Large Language Models.* arXiv:2602.02467.
-- Graziano, M. (2013). *Consciousness and the Social Brain* (attention schema theory).
-- Baars, B. (1988); Dehaene, S. (2014) (global workspace theory).
+- Butlin, P., Long, R., et al. (2023). *Consciousness in Artificial Intelligence: Insights from the Science of Consciousness.* [arXiv:2308.08708](https://arxiv.org/abs/2308.08708).
+- Yalon, N. S., Goldstein, A., Mudrik, L., Geva, M. (2026). *Indications of Belief-Guided Agency and Meta-Cognitive Monitoring in Large Language Models.* [arXiv:2602.02467](https://arxiv.org/abs/2602.02467).
+- Graziano, M. (2013). *Consciousness and the Social Brain.* Oxford University Press. Overview: [attention schema theory](https://en.wikipedia.org/wiki/Attention_schema_theory).
+- Baars, B. (1988). *A Cognitive Theory of Consciousness.* Cambridge University Press; Dehaene, S. (2014). *Consciousness and the Brain.* Viking. Overview: [global workspace theory](https://en.wikipedia.org/wiki/Global_workspace_theory).
