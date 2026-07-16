@@ -4,6 +4,22 @@
 
 ---
 
+## Plain-language summary
+
+I use an AI assistant every day and keep it running long-term: it has memory, maintains a knowledge base, does tasks unattended. Over six months it kept failing in the same five ways, so I built it nine small self-maintenance "organs": routines for waking up oriented, consolidating what it learned, checking its own predictions, retiring dead projects, correcting its own errors.
+
+Separately, consciousness scientists published a checklist: fourteen properties that, on the main scientific theories, a conscious system would probably have. It was written to evaluate AI systems.
+
+I scored my system against that checklist, honestly, item by item. Three results:
+
+1. Six of the fourteen properties live inside the neural network itself, decided by the lab that trained the model. Nothing anyone builds around a model (prompts, tools, memory, loops) can touch them. That's a ceiling for the entire ecosystem of agent tooling, not just mine.
+2. The audit made me build one new capability: a way for the agent to notice, after the fact, where its attention actually went.
+3. It also made me refuse to build one: an "introspection" feature that, without access to the model's internals, would just be the agent writing confident fiction about itself.
+
+None of this means my agent is conscious. The paper's own authors concluded no current AI is a serious candidate, and this audit agrees. What it offers is a map of what builders can and cannot reach, drawn from inside the workshop, with every design decision in a public, dated ledger so you can check the story instead of trusting it.
+
+---
+
 ## What this is
 
 Since January 2026 I've been running a persistent, long-lived LLM agent as daily working infrastructure: cross-session memory, a knowledge base it maintains, unattended tasks. Six months of that is long enough for the failure modes to stop looking like incidents and start looking like anatomy.
