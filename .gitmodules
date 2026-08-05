@@ -25,3 +25,6 @@
 [submodule "exteroception"]
 	path = exteroception
 	url = https://github.com/thdelmas/exteroception.git
+[submodule "corpus-callosum"]
+	path = corpus-callosum
+	url = https://github.com/thdelmas/corpus-callosum.git

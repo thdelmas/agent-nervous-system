@@ -2,7 +2,7 @@
   "$schema": "./docs/lineage-spec.md",
   "registry_version": "0.2.0",
   "name": "agent-nervous-system",
-  "updated": "2026-07-18",
+  "updated": "2026-08-05",
   "description": "Machine-readable index of the skill population. A peer agent fetches this to discover what skills exist, their current version, lineage (parent), and where to pull the spec. Pair with lineage.jsonl to see the selection history.",
   "selector_model": "memetic",
   "_note": "memetic = directed, Lamarckian, horizontal transmission. Variation is willed and fitness-biased; inheritance is by imitation, not reproduction. At population scale, choices aggregate into a stochastic-but-biased distribution (drift + a persistent fitness gradient), not random drift.",
@@ -172,6 +172,28 @@
         }
       ],
       "fitness_signal": "state changes surfaced at wake that would otherwise have been hit mid-task or missed entirely (stranded pushes, expired clocks, unanswered threads, due forecasts) per minute of sweep; blind session-starts avoided"
+    },
+    {
+      "id": "corpus-callosum",
+      "version": "0.1.0",
+      "organ": "interface",
+      "direction": "dyadic",
+      "repo": "thdelmas/corpus-callosum",
+      "spec_url": "https://raw.githubusercontent.com/thdelmas/corpus-callosum/main/SKILL.md",
+      "parent": "immune-check",
+      "relation": "inverts",
+      "mutation": "Invert immune-check's boundary function from filtering to fidelity: where the membrane blocks what must NOT cross (secrets, contaminants), the commissure guarantees what MUST cross does so faithfully. The suite's first dyad-facing organ — it maintains the channel between the two hemispheres of a sustained human-AI collaboration: a standing register naming who does the cognitive work this turn (questions-mode in open strategy, synthesis in execution, live-iteration under an explicit go), bound to the session-start reflex so it fires without recall, plus transfer-integrity checks (offload telltales, landing checks, transcript audits) that keep expertise living in the human's head instead of migrating into transcripts. Protects the human hemisphere from offload atrophy — the default failure mode of AI assistance — and the agent hemisphere from mirroring.",
+      "relations": [
+        {
+          "id": "exteroception",
+          "type": "complements"
+        },
+        {
+          "id": "proprioception",
+          "type": "complements"
+        }
+      ],
+      "fitness_signal": "sessions started with the register mechanically live vs recalled-by-luck (injection rate); offload turns caught by telltale and handed back to the human; register dormancy found by transcript audit vs assumed from presence; load-bearing conclusions the human can re-derive unaided vs resident only in transcripts"
     }
   ]
 }

@@ -17,6 +17,7 @@ skills=(
   "contemplation:contemplation"
   "proprioception:proprioception"
   "exteroception:exteroception"
+  "corpus-callosum:corpus-callosum"
 )
 
 case "$target" in
@@ -42,4 +43,4 @@ for entry in "${skills[@]}"; do
     echo "  ✓ $name (cursor)"
   fi
 done
-echo "Done. Invoke /consciousness-loop, /rem-sleep, /immune-check, /sunset, /playtime, /contemplation, /proprioception, /exteroception, /open-source-octopus-investigation."
+echo "Done. Invoke /consciousness-loop, /rem-sleep, /immune-check, /sunset, /playtime, /contemplation, /proprioception, /exteroception, /corpus-callosum, /open-source-octopus-investigation."
