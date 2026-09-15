@@ -2,7 +2,7 @@
   "$schema": "./docs/lineage-spec.md",
   "registry_version": "0.2.0",
   "name": "agent-nervous-system",
-  "updated": "2026-08-05",
+  "updated": "2026-09-15",
   "description": "Machine-readable index of the skill population. A peer agent fetches this to discover what skills exist, their current version, lineage (parent), and where to pull the spec. Pair with lineage.jsonl to see the selection history.",
   "selector_model": "memetic",
   "_note": "memetic = directed, Lamarckian, horizontal transmission. Variation is willed and fitness-biased; inheritance is by imitation, not reproduction. At population scale, choices aggregate into a stochastic-but-biased distribution (drift + a persistent fitness gradient), not random drift.",
@@ -135,21 +135,21 @@
     },
     {
       "id": "proprioception",
-      "version": "0.3.0",
+      "version": "0.4.0",
       "organ": "feedback",
       "direction": "reflexive",
       "repo": "thdelmas/proprioception",
       "spec_url": "https://raw.githubusercontent.com/thdelmas/proprioception/main/SKILL.md",
       "parent": "consciousness-loop",
       "relation": "extends",
-      "mutation": "Promote the loop's one-line drift-check ('am I still on objective?') into a full performance feedback controller: sense intended-vs-actual, score against the declared fitness_signal, diagnose systematic vs noise, write the correction back into a param/rule/default/memory, and re-test that it helped. The organ that closes the error->correction loop on the self — and the first consumer of the registry's fitness_signal fields. Examines means (execution quality), the complement to contemplation's ends. Grades three objects: actions (the cycle), judgments (the forecast ledger, v0.2.0), and allocation (the attention schema, v0.3.0 — what deserved attention at all; the suite's weak-form AST-1, learned retrospectively since capture cannot be caught from inside capture).",
+      "mutation": "Promote the loop's one-line drift-check ('am I still on objective?') into a full performance feedback controller: sense intended-vs-actual, score against the declared fitness_signal, diagnose systematic vs noise, write the correction back into a param/rule/default/memory, and re-test that it helped. The organ that closes the error->correction loop on the self — and the first consumer of the registry's fitness_signal fields. Examines means (execution quality), the complement to contemplation's ends. Grades three objects: actions (the cycle), judgments (the forecast ledger, v0.2.0), and allocation (the attention schema, v0.3.0 — what deserved attention at all; the suite's weak-form AST-1, learned retrospectively since capture cannot be caught from inside capture). v0.4.0 adds the organ pulse: a fourth object, the body's own activity — which organs actually fired, how often, when last — kept at the tool boundary by hook plus a self-marker every organ carries for prose runs; untraced is indistinguishable from dormant, and the pulse is what makes the difference visible.",
       "relations": [
         {
           "id": "consciousness-loop",
           "type": "scheduled-by"
         }
       ],
-      "fitness_signal": "corrections that measurably reduced error on a later run vs. churned edits that changed nothing or regressed; recurring failure modes caught-and-fixed vs. re-diagnosed from scratch; attention pulls that were predicted and actually pre-empted a capture vs. a profile never read at decide-time"
+      "fitness_signal": "corrections that measurably reduced error on a later run vs. churned edits that changed nothing or regressed; recurring failure modes caught-and-fixed vs. re-diagnosed from scratch; attention pulls that were predicted and actually pre-empted a capture vs. a profile never read at decide-time; dormant organs caught by the pulse and re-bound or retired vs. a firing ledger nobody reads"
     },
     {
       "id": "exteroception",
