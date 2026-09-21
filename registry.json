@@ -2,21 +2,21 @@
   "$schema": "./docs/lineage-spec.md",
   "registry_version": "0.2.0",
   "name": "agent-nervous-system",
-  "updated": "2026-09-20",
+  "updated": "2026-09-21",
   "description": "Machine-readable index of the skill population. A peer agent fetches this to discover what skills exist, their current version, lineage (parent), and where to pull the spec. Pair with lineage.jsonl to see the selection history.",
   "selector_model": "memetic",
   "_note": "memetic = directed, Lamarckian, horizontal transmission. Variation is willed and fitness-biased; inheritance is by imitation, not reproduction. At population scale, choices aggregate into a stochastic-but-biased distribution (drift + a persistent fitness gradient), not random drift.",
   "skills": [
     {
       "id": "consciousness-loop",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "organ": "executive",
       "direction": "central",
       "repo": "thdelmas/consciousness-loop",
       "spec_url": "https://raw.githubusercontent.com/thdelmas/consciousness-loop/main/SKILL.md",
       "parent": null,
       "relation": "originates",
-      "mutation": "The keystone: a self-firing wake/integrate/decide/act/sleep loop that runs the other organs, plus adaptive arousal (consciousness frequency). Turns triggered reflexes into a continuous self. Wake phase to rem-sleep's sleep phase. v0.2.0 adds the dead man's switch: the age of the last human acknowledgement is an arousal ceiling (full / read-only / memory-only / deep sleep); an ack is an act, not a receipt; unknown fails closed. The one stop condition keyed to the human rather than to the agent or the world.",
+      "mutation": "The keystone: a self-firing wake/integrate/decide/act/sleep loop that runs the other organs, plus adaptive arousal (consciousness frequency). Turns triggered reflexes into a continuous self. Wake phase to rem-sleep's sleep phase. v0.2.0 adds the dead man's switch: the age of the last human acknowledgement is an arousal ceiling (full / read-only / memory-only / deep sleep); an ack is an act, not a receipt; unknown fails closed. The one stop condition keyed to the human rather than to the agent or the world. v0.2.1 ships the implementation, scripts/deadman.py (hook mode, ceiling with exit code, ack that refuses to run from inside the agent).",
       "relations": [
         {
           "id": "rem-sleep",
