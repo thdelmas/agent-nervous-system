@@ -1,0 +1,3 @@
+#!/bin/sh
+python3 "$(git rev-parse --show-toplevel)/.githooks/leakcheck.py" --staged || exit 1   # leakcheck: no references outside the repository
+exit 0
